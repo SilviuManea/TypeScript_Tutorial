@@ -1,10 +1,15 @@
-var character = 'Silviu';
-console.log(character);
-var inputs = document.querySelectorAll('input');
-console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
-});
-//TypeScript Tutorial #2 - Compiling TypeScript
-//To compile from ts to js ->> in terminal ->> tsc sandbox.ts
-//To watch and auto compile the ts file execute ->> tsc sandbox.ts -w
+var character = 'mario';
+var age = 30;
+var isBlackBelt = false;
+//character = 20; //->it will complain because it's not the same type.
+character = 'luigi';
+//age = 'yoshy'; //->it will complain because it's not the same type.
+age = 40;
+//isBlackBelt = 'yes' //->it will complain because it's not the same type.
+isBlackBelt = true;
+var circ = function (diameter) {
+    return diameter * Math.PI;
+};
+//console.log(circ('hello')); //it will complain since is requesting a number.
+console.log(circ(5)); // this one compiles ok
+//TypeScript Tutorial #3 - Type Basics

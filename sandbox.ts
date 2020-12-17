@@ -1,15 +1,21 @@
-const character = 'Silviu';
+let character = 'mario';
+let age = 30;
+let isBlackBelt = false;
 
-console.log(character);
+//character = 20; //->it will complain because it's not the same type.
+character = 'luigi';
 
-const inputs = document.querySelectorAll('input');
+//age = 'yoshy'; //->it will complain because it's not the same type.
+age = 40;
 
-console.log(inputs);
+//isBlackBelt = 'yes' //->it will complain because it's not the same type.
+isBlackBelt = true;
 
-inputs.forEach(input => {
-    console.log(input);
-});
+const circ = (diameter:number) =>{ //:number forces the argument to be a number.
+    return diameter *Math.PI;
+}
 
-//TypeScript Tutorial #2 - Compiling TypeScript
-//To compile from ts to js ->> in terminal ->> tsc sandbox.ts
-//To watch and auto compile the ts file execute ->> tsc sandbox.ts -w
+//console.log(circ('hello')); //it will complain since is requesting a number.
+console.log(circ(5)); // this one compiles ok
+
+//TypeScript Tutorial #3 - Type Basics
