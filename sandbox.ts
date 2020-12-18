@@ -1,41 +1,44 @@
-//arrays
-let names = ['luigi','mario','yoshi'];
+// TypeScript Tutorial #5 - Explicit Types
 
-names.push('toad'); // -->same type, will work
-//names.push(3); // -->different types
-//names[0] = 3; // -->different types
 
-let numbers = [10,20,30,40];
+// explicit types
+let character:string; //initialize a variable defining the type but not the value;
+let age:number;
+let isLoggedIn:boolean;
 
-numbers.push(25);
-//numbers.push('silviu'); // -->different types
-//numbers.push[1] = 'silviu' // -->different types
+// age = 'luigi'; //nok
+age = 30; //ok
+isLoggedIn = true; //ok
 
-let mixed = ['ken', 4 , 'chun-li', 8 , 9]; //mixed type array
+// arrays
+let ninjas:string[] = []; //defining and initializing(with = [];) empty array - beware  if is not initialized , it will fail at runtime if we try to assign any values
 
-mixed.push('ryu');
-mixed.push(10);
-mixed[0] = 3;
+ninjas = ['yoshi' , 'mario'];
 
-//objects
+ninjas.push('silviu');
 
-let ninja = { //also this has to be always of type object
-    name : 'mario', //the property type remains fixed
-    belt: 'black',
-    age:30
-};
+// union types | - mixed arrays
+let mixed: (string|number)[] = []; //to add a new type let mixed: (string|number|boolean)[] = [];
+mixed.push('hello');
+mixed.push(20);
+//mixed.push(false); //this will not work if we dont add the boolean type to the array
+console.log(mixed);
 
-//updating properties
-ninja.age = 40;
-ninja.name = 'ryu';
-//ninja.age = '30' // age has to be the same type as in the declaration
+//union types on variables
+let uid: string|number;
+uid = '123';
+uid = 123;
+//uid = false;
 
-//updating the object - we can only update the values of the different properties, but we can not add new ones or change their type
-ninja = {
-    name : 'yoshi',
-    belt : 'orange',
-    age:40,
-    //skills: [] //we can not change the structura of the initial object (ninja)
+// objects
+let ninjaOne : object;
+ninjaOne = {name: 'yoshi' , age:30};
+//ninjaOne = 'hello' //nok
+
+let ninjaTwo: {
+    name:string,
+    age:number,
+    beltColour:string
 }
+ninjaTwo = {name : 'mario' , age : 20 , beltColour : 'black'};
 
-//TypeScript Tutorial #4 - Objects & Arrays

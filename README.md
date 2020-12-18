@@ -21,3 +21,5 @@ Lesson4 - TypeScript Tutorial #4 - Objects & Arrays
 //mixed type of values on arrays
 //type of object - once declared we can not change the type of the object or it's structure(we can change the values of its properties though(but not their type))
 
+Lesson5 - TypeScript Tutorial #5 - Explicit Types
+//Set specific type to an object or variable
