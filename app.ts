@@ -1,0 +1,1 @@
+//this should not be compiled since this file is outside of the src folder(check the include on tsconfig.json)
