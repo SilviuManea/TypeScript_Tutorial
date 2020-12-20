@@ -26,3 +26,13 @@ Lesson5 - TypeScript Tutorial #5 - Explicit Types
 
 Lesson6 - TypeScript Tutorial #6 - Dynamic (any) Types
 //We use the any type for a vbariable that can be of any type and in the future can change its type. - THIS IS NOT RECOMMENDED BECAUSE WE ARE LOSING ALL THE BENEFITS OF TYPESCRIPT
+
+Lesson7 - TypeScript Tutorial #7 - Better Workflow & tsconfig
+//we can use tsc --init to create a tsconfig.jscon file in which we can specify what folders to compile when using tsc:    
+
+Enable this under tsconfig.js:
+"outDir": "./public",    /* Redirect output structure to the directory. */
+"rootDir": "./src",      /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+
+and at the end, to include only the files in a specific folder(ex: src) we should add
+"include":["src"] //include ONLY files inside the src folder and nothing else
