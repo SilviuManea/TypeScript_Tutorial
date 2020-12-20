@@ -1,44 +1,27 @@
-// TypeScript Tutorial #5 - Explicit Types
+// TypeScript Tutorial #6 - Dynamic (any) Types
 
+let age: any = 25; //declaration and initialization on the same line
 
-// explicit types
-let character:string; //initialize a variable defining the type but not the value;
-let age:number;
-let isLoggedIn:boolean;
+age = true;//we can change it's value since is of type any - DO NOT USE THIS IF POSSIBLE
+console.log(age);
+age = 'hello';
+console.log(age);
+age = {name: 'luigi' };
+console.log (age);
 
-// age = 'luigi'; //nok
-age = 30; //ok
-isLoggedIn = true; //ok
+let mixed: any[] = []; //declare an array of any type of value
 
-// arrays
-let ninjas:string[] = []; //defining and initializing(with = [];) empty array - beware  if is not initialized , it will fail at runtime if we try to assign any values
-
-ninjas = ['yoshi' , 'mario'];
-
-ninjas.push('silviu');
-
-// union types | - mixed arrays
-let mixed: (string|number)[] = []; //to add a new type let mixed: (string|number|boolean)[] = [];
-mixed.push('hello');
-mixed.push(20);
-//mixed.push(false); //this will not work if we dont add the boolean type to the array
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
 console.log(mixed);
 
-//union types on variables
-let uid: string|number;
-uid = '123';
-uid = 123;
-//uid = false;
+let ninja: {name:any , age: any}; //declare an object with properties of any type
 
-// objects
-let ninjaOne : object;
-ninjaOne = {name: 'yoshi' , age:30};
-//ninjaOne = 'hello' //nok
+ninja = {name: 'yoshi', age:25}; //use example ok
+console.log(ninja);
 
-let ninjaTwo: {
-    name:string,
-    age:number,
-    beltColour:string
-}
-ninjaTwo = {name : 'mario' , age : 20 , beltColour : 'black'};
+ninja = {name: 25 , age:'yoshi'}; //use example where using any type can be a mistake
+console.log(ninja);
+
 

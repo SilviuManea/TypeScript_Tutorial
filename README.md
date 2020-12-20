@@ -23,3 +23,6 @@ Lesson4 - TypeScript Tutorial #4 - Objects & Arrays
 
 Lesson5 - TypeScript Tutorial #5 - Explicit Types
 //Set specific type to an object or variable
+
+Lesson6 - TypeScript Tutorial #6 - Dynamic (any) Types
+//We use the any type for a vbariable that can be of any type and in the future can change its type. - THIS IS NOT RECOMMENDED BECAUSE WE ARE LOSING ALL THE BENEFITS OF TYPESCRIPT
