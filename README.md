@@ -39,3 +39,6 @@ and at the end, to include only the files in a specific folder(ex: src) we shoul
 
 Lesson8 - TypeScript Tutorial #8 - Function Basics
 //optional parameters for functions and return types
+
+Lesson9 - TypeScript Tutorial #9 Type Aliases
+//we can use an alias for a custom type so that we dont need to define them each time in the functions.Plus we reduce code duplication
