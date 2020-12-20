@@ -42,3 +42,6 @@ Lesson8 - TypeScript Tutorial #8 - Function Basics
 
 Lesson9 - TypeScript Tutorial #9 Type Aliases
 //we can use an alias for a custom type so that we dont need to define them each time in the functions.Plus we reduce code duplication
+
+//Lesson10 - TypeScript Tutorial #10 - Function Signatures
+Signatures describe the general structure of a function - what data type it takes and returns.

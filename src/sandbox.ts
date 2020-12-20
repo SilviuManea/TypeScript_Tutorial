@@ -1,16 +1,41 @@
-//TypeScript Tutorial #9 Type Aliases
+//TypeScript Tutorial #10 - Function Signatures
 
-type StringOrNum = string|number; //define out custom type alias(string or number)
-type objWithName = { name: string , uid:StringOrNum};//object with name
+//let greet : Function;
 
-const logDetails = (uid: StringOrNum , item: string) => {//example
-    console.log(`${item} has a uid of ${uid}`);
+// example 1
+let greet:(a:string, b:string) => void; //signature
+
+greet = (name:string , greeting:string) =>{ //use the function- typescript already knows it returns void
+    console.log(`${name} says ${greeting}`);
 }
 
-const greet = (user: objWithName) => {//example
-    console.log(`${user.name} says hello`);
+// example 2
+
+let calc:(a:number , b:number , c:string) => number;// signature
+
+calc = (numOne:number , numTwo:number , action:string) : number => {
+    if(action === 'add'){
+        return numOne + numTwo;
+    }else{
+        return numOne - numTwo; //the else is needed because if the action is not 'add' this does not return a number and it must always return a number(because of the signature)
+    }
 }
 
-const greetAgain = (user: objWithName) => {
-    console.log(`${user.name} says hello again`);
+// example 3
+
+let logDetails: (obj: {name:string, age:number}) => void; //signature
+
+
+
+// logDetails = (ninja: {name:string , age:number}) =>{ //returns void
+//     console.log(`${ninja.name} is ${ninja.age} years old`);
+// }
+
+//OR using alias: person
+
+type person = {name:string, age:number}; //alias
+
+logDetails = (ninja:person) =>{ //returns void
+    console.log(`${ninja.name} is ${ninja.age} years old`);
 }
+
