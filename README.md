@@ -36,3 +36,6 @@ Enable this under tsconfig.js:
 
 and at the end, to include only the files in a specific folder(ex: src) we should add
 "include":["src"] //include ONLY files inside the src folder and nothing else
+
+Lesson8 - TypeScript Tutorial #8 - Function Basics
+//optional parameters for functions and return types
