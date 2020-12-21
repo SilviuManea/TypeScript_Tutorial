@@ -1,18 +1,36 @@
 "use strict";
-// //TypeScript Tutorial #11 - The DOM & Type Casting
-//******************************************Example1 - Accessing the dom
-// const anchor = document.querySelector('a')!;// '!' -> ensures that this anchor is not null(the developer mus be sure of that)
-// //If we are trying to grab the anchor tag without checking id it returns a value TS complains that it mught be null
-// // Solution 1 - check is is not null
-// // if (anchor) {
-// //     console.log(anchor.href);
-// // }
-// //or Solution 2 - (!)->we have to manually confirm that that anchor will not be null
-// console.log(anchor.href);// <- it will not complain if we assure that the element is not null('!')
-//******************************************Example2 - Type Casting
-//const form = document.querySelector('form')!;
+//TypeScript Tutorial #12 - Classes
+//*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
+//Classes
+var Invoice = /** @class */ (function () {
+    //constructor
+    function Invoice(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    //methods
+    Invoice.prototype.format = function () {
+        return this.client + " owes \u20AC" + this.amount + " for " + this.details;
+    };
+    return Invoice;
+}());
+//instantiate the class
+var invOne = new Invoice('Mario', 'work on the mario website', 250);
+var invTwo = new Invoice('Luigi', 'work on the Luigi website', 300);
+//console.log(invOne , invTwo);
+//create an array where we can only add invoice objects
+var invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+console.log(invoices);
+//since this properties are public, we can modify them
+invOne.client = 'yoshi';
+invTwo.amount = 400;
+console.log(invOne, invTwo);
+//in lesson 13 we can learn how to use private properties and access modifiers to limit this.
+//////////////////////////////////////////////////////////////
 var form = document.querySelector('.new-item-form'); //when we use 'as' we dont have to use the exclamation mark '!'
-//console.log(form.children);
 //inputs
 var type = document.querySelector('#type');
 var tofrom = document.querySelector('#tofrom');
@@ -21,6 +39,5 @@ var amount = document.querySelector('#amount');
 //grab the form and add event listener
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber //autocasts the value from string to number
-    );
+    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });

@@ -48,3 +48,6 @@ Lesson10 - TypeScript Tutorial #10 - Function Signatures
 
 Lesson11 - TypeScript Tutorial #11 - The DOM & Type Casting
 //Basic Dom Interaction and type casting.
+
+Lesson12 - TypeScript Tutorial #12 - Classes
+//Basic class declaration, initialization and use.

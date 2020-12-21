@@ -1,24 +1,52 @@
-// //TypeScript Tutorial #11 - The DOM & Type Casting
+//TypeScript Tutorial #12 - Classes
 
-//******************************************Example1 - Accessing the dom
+//*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
 
-// const anchor = document.querySelector('a')!;// '!' -> ensures that this anchor is not null(the developer mus be sure of that)
+//Classes
+class Invoice {
 
-// //If we are trying to grab the anchor tag without checking id it returns a value TS complains that it mught be null
+    //properties
+    client: string;
+    details: string;
+    amount: number;
 
-// // Solution 1 - check is is not null
-// // if (anchor) {
-// //     console.log(anchor.href);
-// // }
+    //constructor
+    constructor(c:string , d:string , a:number){
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
 
-// //or Solution 2 - (!)->we have to manually confirm that that anchor will not be null
-// console.log(anchor.href);// <- it will not complain if we assure that the element is not null('!')
+    //methods
+    format(){
+        return `${this.client} owes €${this.amount} for ${this.details}`;
+    }
+}
 
-//******************************************Example2 - Type Casting
+//instantiate the class
+const invOne = new Invoice('Mario' , 'work on the mario website' , 250);
+const invTwo = new Invoice('Luigi' , 'work on the Luigi website' , 300);
 
-//const form = document.querySelector('form')!;
+//console.log(invOne , invTwo);
+
+//create an array where we can only add invoice objects
+let invoices:Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+
+console.log(invoices);
+
+//since this properties are public, we can modify them
+invOne.client = 'yoshi';
+invTwo.amount = 400;
+
+console.log(invOne,invTwo);
+
+//in lesson 13 we can learn how to use private properties and access modifiers to limit this.
+//////////////////////////////////////////////////////////////
+
 const form = document.querySelector('.new-item-form') as HTMLFormElement;//when we use 'as' we dont have to use the exclamation mark '!'
-//console.log(form.children);
+
 
 //inputs
 const type = document.querySelector('#type') as HTMLSelectElement;
@@ -34,6 +62,6 @@ form.addEventListener('submit', (e: Event) =>{
         type.value,
         tofrom.value,
         details.value,
-        amount.valueAsNumber //autocasts the value from string to number
+        amount.valueAsNumber
     );
 })
