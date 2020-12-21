@@ -51,3 +51,6 @@ Lesson11 - TypeScript Tutorial #11 - The DOM & Type Casting
 
 Lesson12 - TypeScript Tutorial #12 - Classes
 //Basic class declaration, initialization and use.
+
+Lesson13 - TypeScript Tutorial #13 - Public, Private & Readonly
+//

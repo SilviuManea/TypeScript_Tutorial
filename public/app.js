@@ -1,5 +1,5 @@
 "use strict";
-//TypeScript Tutorial #12 - Classes
+//TypeScript Tutorial #13 - Public, Private & Readonly
 //*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
 //Classes
 var Invoice = /** @class */ (function () {
