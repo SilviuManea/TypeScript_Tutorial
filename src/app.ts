@@ -1,4 +1,42 @@
 //*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
+
+//TypeScript Tutorial #15 - Interfaces
+interface IsPerson { //defining the interface
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a:number):number;
+}
+
+const me: IsPerson = { //creating a constant that matches the structure of the interface.
+    name: 'silviu',
+    age: 33 ,
+    speak(text:string):void{
+        console.log(text);
+    },
+    spend(amount:number):number {
+        console.log('I spent', amount);
+        return amount;
+    }
+};
+
+//using the interface on a paramter so that when we use the method we have to match all its methods and properties
+const greetPerson = (person: IsPerson) => {
+    console.log('hello', person.name);
+}
+//invoking the method greetPerson with only one property
+//greetPerson({name:'silviu'}) //<--it does not work because it does not match the interface
+
+//invoking the method with a person object
+greetPerson(me); //<--since me is a OK match of the interface it works ok.
+
+
+console.log(me);
+
+let someone : IsPerson //in order to use that variable in the future we have to first match its properties from the interface
+
+
+
 import {Invoice} from './classes/Invoice.js' //important it has to be .js since the browser is importing the compiled file
 
 

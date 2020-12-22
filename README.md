@@ -60,3 +60,6 @@ Lesson14 - TypeScript Tutorial #14 - Modules
 //under index.html set -> <script type  = "module" src='app.js'></script>
 //in order to use a module we first separate and export the class and we need to import that class in the file we want to instantiate it. Example: export on the file Invoice.ts class and import on file app.ts
 //in order to be optimal, we should use webpack with the module system, which allows us to also use this oon older browser, since it's supported only on newest browsers.(optional)
+
+Lesson15 - TypeScript Tutorial #15 - Interfaces
+//Allows us to enforce a certain structure of a class or object.Used to decribe what properties, methods and return of those methods are.
