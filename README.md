@@ -54,3 +54,9 @@ Lesson12 - TypeScript Tutorial #12 - Classes
 
 Lesson13 - TypeScript Tutorial #13 - Public, Private & Readonly
 //Examples of use in the corresponding branch
+
+Lesson14 - TypeScript Tutorial #14 - Modules
+//Under tsconfig.json modify ->  "target": "es6","module": "es2015"  
+//under index.html set -> <script type  = "module" src='app.js'></script>
+//in order to use a module we first separate and export the class and we need to import that class in the file we want to instantiate it. Example: export on the file Invoice.ts class and import on file app.ts
+//in order to be optimal, we should use webpack with the module system, which allows us to also use this oon older browser, since it's supported only on newest browsers.(optional)
