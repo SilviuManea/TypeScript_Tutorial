@@ -6,19 +6,21 @@
 class Invoice {
 
     //properties
-    client: string;
-    details: string;
-    amount: number;
+    // readonly client: string; //we can read it from inside the class and outside but we cant change it
+    // private details: string; //a private property will only be available inside the class
+    // public amount: number; //public allows reading and changing the value outside of the class and inside
 
-    //constructor
-    constructor(c:string , d:string , a:number){
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+    //constructor v2- asigning the properties and their scope in the constructor directly
+    constructor(
+        readonly client : string, //in order to assign the properties directly in the constructor we have to use the modifiers(public,provate,readonly)
+        private details : string,
+        public amount : number
+
+    ){}
 
     //methods
     format(){
+        //this.client = 'something else' // <-- we can not change it because it's read only
         return `${this.client} owes €${this.amount} for ${this.details}`;
     }
 }
@@ -34,16 +36,12 @@ let invoices:Invoice[] = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 
-console.log(invoices);
-
-//since this properties are public, we can modify them
-invOne.client = 'yoshi';
-invTwo.amount = 400;
-
-console.log(invOne,invTwo);
-
 //in lesson 13 we can learn how to use private properties and access modifiers to limit this.
 //////////////////////////////////////////////////////////////
+invoices.forEach(inv => {
+    console.log(inv.client , inv.amount , inv.format());
+})
+
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;//when we use 'as' we dont have to use the exclamation mark '!'
 

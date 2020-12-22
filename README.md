@@ -53,4 +53,4 @@ Lesson12 - TypeScript Tutorial #12 - Classes
 //Basic class declaration, initialization and use.
 
 Lesson13 - TypeScript Tutorial #13 - Public, Private & Readonly
-//
+//Examples of use in the corresponding branch
