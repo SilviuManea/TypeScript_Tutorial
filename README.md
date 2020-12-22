@@ -63,3 +63,5 @@ Lesson14 - TypeScript Tutorial #14 - Modules
 
 Lesson15 - TypeScript Tutorial #15 - Interfaces
 //Allows us to enforce a certain structure of a class or object.Used to decribe what properties, methods and return of those methods are.
+
+Lesson16 - TypeScript Tutorial #16 - Interfaces with Classes

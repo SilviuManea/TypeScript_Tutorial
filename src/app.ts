@@ -1,6 +1,7 @@
 //*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
 
 //TypeScript Tutorial #15 - Interfaces
+
 interface IsPerson { //defining the interface
     name: string;
     age: number;
