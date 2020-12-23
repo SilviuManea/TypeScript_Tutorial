@@ -31,35 +31,27 @@ form.addEventListener('submit', (e: Event) =>{
     
 });
 
-//TypeScript Tutorial #18 - Generics
+//TypeScript Tutorial #19 - Enums
 
-const addUID = <T extends {name:string} > (obj: T ) => { //T captures whatever object and whatever properties that object has, in order to be used later
-    let uid = Math.floor(Math.random() * 100);
-    return {...obj, uid}; //when we return the object(using T), it's going to know what properties are on the object
+// ENUMS
+
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR }; // each one of these words is associated toa  specific number.[1,2,3,4]
+
+interface Resource<T> {
+  uid: number;
+  resourceType: ResourceType;
+  data: T;
 }
 
-let docOne = addUID({name: ' yoshi' , age: 40});
-//let docTwo = addUID('hello') //this should not work, should not be allowed, we can combat this by extending the class object in the main function -> <T extends object> (obj: T )
-
-console.log(docOne.name); // we can only access this because we captured that info(object property) using T on the main function addUID
-
-//with interfaces
-interface Resource <T>{ //this T means that the resource type is Generic(any type)
-    uid:number;
-    resourceName: string;
-    data: T; //we can say that the data trrypoe can also be generic(but it must match the resource type from the interface)
+const docOne: Resource<object> = {
+  uid: 1,
+  resourceType: ResourceType.BOOK,
+  data: { title: 'name of the wind' }
 }
-//example
-const docThree : Resource<string> = { //we pass a string
-    uid: 1,
-    resourceName: 'person',
-    data:'shaun' //we have to use a string here
+const docTwo: Resource<object> = {
+  uid: 10,
+  resourceType: ResourceType.DIRECTOR,
+  data: { title: 'name of the wind' }
 }
 
-const docFour: Resource<string[]> = {
-    uid: 2,
-    resourceName: 'shoppingList',
-    data: ['bread' , 'milk']
-}
-
-console.log(docThree, docFour);
+console.log(docOne,docTwo);

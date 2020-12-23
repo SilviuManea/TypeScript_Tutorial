@@ -72,3 +72,6 @@ Lesson17 - TypeScript Tutorial #17 - Rendering an HTML Template
 
 Lesson18 - TypeScript Tutorial #18 - Generics
 //Feature  - Allows us to create reusable blocks of code which can be used with different types.
+
+Lesson19 - TypeScript Tutorial #19 - Enums
+//Special datatype that allows us to store a set of constants or keywords and associate it with a numeric value.

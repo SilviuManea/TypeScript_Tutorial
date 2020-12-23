@@ -23,23 +23,24 @@ form.addEventListener('submit', (e) => {
     }
     list.render(doc, type.value, 'end'); //this renders the invoice or payment on the main list
 });
-//TypeScript Tutorial #18 - Generics
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid }); //when we return the object(using T), it's going to know what properties are on the object
-};
-let docOne = addUID({ name: ' yoshi', age: 40 });
-//let docTwo = addUID('hello') //this should not work, should not be allowed, we can combat this by extending the class object in the main function -> <T extends object> (obj: T )
-console.log(docOne.name); // we can only access this because we captured that info(object property) using T on the main function addUID
-//example
-const docThree = {
+//TypeScript Tutorial #19 - Enums
+// ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+})(ResourceType || (ResourceType = {}));
+; // each one of these words is associated toa  specific number.
+const docOne = {
     uid: 1,
-    resourceName: 'person',
-    data: 'shaun' //we have to use a string here
+    resourceType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
 };
-const docFour = {
-    uid: 2,
-    resourceName: 'shoppingList',
-    data: ['bread', 'milk']
+const docTwo = {
+    uid: 10,
+    resourceType: ResourceType.DIRECTOR,
+    data: { title: 'name of the wind' }
 };
-console.log(docThree, docFour);
+console.log(docOne, docTwo);
