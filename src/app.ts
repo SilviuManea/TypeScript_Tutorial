@@ -20,38 +20,34 @@ const list = new ListTemplate(ul);
 form.addEventListener('submit', (e: Event) =>{
     e.preventDefault();
 
+    //using tuples to pass values
+    let values: [string, string, number];
+    values = [tofrom.value,details.value,amount.valueAsNumber]
+
     let doc: HasFormatter;
     if(type.value === 'invoice'){
-        doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Invoice(...values)//we use the spread operator to spread out the values
     }else{
-        doc = new Payment(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Payment(...values)
     }
 
     list.render(doc , type.value , 'end'); //this renders the invoice or payment on the main list
     
 });
 
-//TypeScript Tutorial #19 - Enums
+//TypeScript Tutorial #20 - Tuples
 
-// ENUMS
+//array
+let arr = ['ryu' , 25 , true]; 
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false , 'yoshi'];
+//tuple
+let tup: [string , number , boolean] =  ['ryu', 25 , true]; //this works ok because the position types match
+//let tup: [string , number , boolean] =  ['ryu', true , true]; //this does not work because the positions types dont match
+tup[0] = 'ken';
+tup[1] = 30;
+tup[2] = false;
 
-enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR }; // each one of these words is associated toa  specific number.[1,2,3,4]
-
-interface Resource<T> {
-  uid: number;
-  resourceType: ResourceType;
-  data: T;
-}
-
-const docOne: Resource<object> = {
-  uid: 1,
-  resourceType: ResourceType.BOOK,
-  data: { title: 'name of the wind' }
-}
-const docTwo: Resource<object> = {
-  uid: 10,
-  resourceType: ResourceType.DIRECTOR,
-  data: { title: 'name of the wind' }
-}
-
-console.log(docOne,docTwo);
+let student: [string, number];
+student = ['chun-li',232354];

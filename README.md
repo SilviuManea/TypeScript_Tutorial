@@ -75,3 +75,6 @@ Lesson18 - TypeScript Tutorial #18 - Generics
 
 Lesson19 - TypeScript Tutorial #19 - Enums
 //Special datatype that allows us to store a set of constants or keywords and associate it with a numeric value.
+
+Lesson20 - TypeScript Tutorial #20 - Tuples
+//They are like arrays, but the types of data in a tuple it's fixed once it has been initialised.
