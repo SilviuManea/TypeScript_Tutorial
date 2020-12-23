@@ -32,7 +32,7 @@ var ResourceType;
     ResourceType[ResourceType["FILM"] = 2] = "FILM";
     ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
 })(ResourceType || (ResourceType = {}));
-; // each one of these words is associated toa  specific number.
+; // each one of these words is associated toa  specific number.[1,2,3,4]
 const docOne = {
     uid: 1,
     resourceType: ResourceType.BOOK,
