@@ -22,5 +22,24 @@ form.addEventListener('submit', (e) => {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
     list.render(doc, type.value, 'end'); //this renders the invoice or payment on the main list
-    //console.log(doc);
 });
+//TypeScript Tutorial #18 - Generics
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid }); //when we return the object(using T), it's going to know what properties are on the object
+};
+let docOne = addUID({ name: ' yoshi', age: 40 });
+//let docTwo = addUID('hello') //this should not work, should not be allowed, we can combat this by extending the class object in the main function -> <T extends object> (obj: T )
+console.log(docOne.name); // we can only access this because we captured that info(object property) using T on the main function addUID
+//example
+const docThree = {
+    uid: 1,
+    resourceName: 'person',
+    data: 'shaun' //we have to use a string here
+};
+const docFour = {
+    uid: 2,
+    resourceName: 'shoppingList',
+    data: ['bread', 'milk']
+};
+console.log(docThree, docFour);

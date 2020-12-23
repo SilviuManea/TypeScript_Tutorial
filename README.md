@@ -69,3 +69,6 @@ Lesson16 - TypeScript Tutorial #16 - Interfaces with Classes
 
 Lesson17 - TypeScript Tutorial #17 - Rendering an HTML Template
 //We are rendering the info from the input on to the list of the main page.
+
+Lesson18 - TypeScript Tutorial #18 - Generics
+//Feature  - Allows us to create reusable blocks of code which can be used with different types.
