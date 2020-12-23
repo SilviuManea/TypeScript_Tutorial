@@ -1,62 +1,36 @@
 //*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
+import { Invoice } from './classes/Invoice.js'; //TypeScript Tutorial #16 - Interfaces with Classes
+import { Payment } from './classes/Payment.js'; //TypeScript Tutorial #16 - Interfaces with Classes
+import { HasFormatter } from './interfaces/HasFormatter.js'; //TypeScript Tutorial #16 - Interfaces with Classes
 
-//TypeScript Tutorial #15 - Interfaces
+// let docOne: HasFormatter; //this variable must be of type hasformatter, it must implement that interface
+// let docTwo: HasFormatter; //this is making sure that whatever object in the future is stored inside docOne and two has to implement that interface
 
-interface IsPerson { //defining the interface
-    name: string;
-    age: number;
-    speak(a: string): void;
-    spend(a:number):number;
-}
+// docOne = new Invoice('yoshi' , 'web work' , 250);
+// docTwo = new Payment('mario' , 'plumbing work' , 200);
 
-const me: IsPerson = { //creating a constant that matches the structure of the interface.
-    name: 'silviu',
-    age: 33 ,
-    speak(text:string):void{
-        console.log(text);
-    },
-    spend(amount:number):number {
-        console.log('I spent', amount);
-        return amount;
-    }
-};
+// let docs: HasFormatter [] = []; // we create an array that only admits objects that implement the HasFormatter interface
+// docs.push(docOne);
+// docs.push(docTwo);
 
-//using the interface on a paramter so that when we use the method we have to match all its methods and properties
-const greetPerson = (person: IsPerson) => {
-    console.log('hello', person.name);
-}
-//invoking the method greetPerson with only one property
-//greetPerson({name:'silviu'}) //<--it does not work because it does not match the interface
+// console.log(docs);
 
-//invoking the method with a person object
-greetPerson(me); //<--since me is a OK match of the interface it works ok.
+// //instantiate the class
+// const invOne = new Invoice('Mario' , 'work on the mario website' , 250);
+// const invTwo = new Invoice('Luigi' , 'work on the Luigi website' , 300);
 
+// //console.log(invOne , invTwo);
 
-console.log(me);
+// //create an array where we can only add invoice objects
+// let invoices:Invoice[] = [];
+// invoices.push(invOne);
+// invoices.push(invTwo);
 
-let someone : IsPerson //in order to use that variable in the future we have to first match its properties from the interface
-
-
-
-import {Invoice} from './classes/Invoice.js' //important it has to be .js since the browser is importing the compiled file
-
-
-//instantiate the class
-const invOne = new Invoice('Mario' , 'work on the mario website' , 250);
-const invTwo = new Invoice('Luigi' , 'work on the Luigi website' , 300);
-
-//console.log(invOne , invTwo);
-
-//create an array where we can only add invoice objects
-let invoices:Invoice[] = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-
-//in lesson 13 we can learn how to use private properties and access modifiers to limit this.
-//////////////////////////////////////////////////////////////
-invoices.forEach(inv => {
-    console.log(inv.client , inv.amount , inv.format());
-})
+// //in lesson 13 we can learn how to use private properties and access modifiers to limit this.
+// //////////////////////////////////////////////////////////////
+// invoices.forEach(inv => {
+//     console.log(inv.client , inv.amount , inv.format());
+// });
 
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;//when we use 'as' we dont have to use the exclamation mark '!'
@@ -72,10 +46,12 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 form.addEventListener('submit', (e: Event) =>{
     e.preventDefault();
 
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber
-    );
-})
+    let doc: HasFormatter;
+    if(type.value === 'invoice'){
+        doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+    }else{
+        doc = new Payment(tofrom.value,details.value,amount.valueAsNumber)
+    }
+
+    console.log(doc);
+});

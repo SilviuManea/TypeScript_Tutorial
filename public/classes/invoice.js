@@ -1,4 +1,3 @@
-//TypeScript Tutorial #14 - Modules
 //Classes
 export class Invoice {
     //properties

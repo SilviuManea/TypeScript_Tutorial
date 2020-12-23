@@ -1,7 +1,8 @@
-//TypeScript Tutorial #14 - Modules
+//TypeScript Tutorial #16 - Interfaces with Classes
+import{ HasFormatter } from '../interfaces/HasFormatter.js'
 
 //Classes
-export class Invoice {
+export class Invoice implements HasFormatter {//This class must follow the structure of the interfece HasFormatter
 
     //properties
     // readonly client: string; //we can read it from inside the class and outside but we cant change it
@@ -17,7 +18,7 @@ export class Invoice {
     ){}
 
     //methods
-    format(){
+    format(){//lesson 16 <- we have to have the format() method in order to use this class because it implements the HasFormat interface
         //this.client = 'something else' // <-- we can not change it because it's read only
         return `${this.client} owes €${this.amount} for ${this.details}`;
     }
