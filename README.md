@@ -65,3 +65,4 @@ Lesson15 - TypeScript Tutorial #15 - Interfaces
 //Allows us to enforce a certain structure of a class or object.Used to decribe what properties, methods and return of those methods are.
 
 Lesson16 - TypeScript Tutorial #16 - Interfaces with Classes
+//We can use interfaces with clases so that when we instantiate a new object of a certain class we can specify what type of interface has to implement that class
