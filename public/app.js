@@ -1,33 +1,16 @@
 //*************REMEMBER TO COMPILE WITH 'TSC' IF YOU MAKLE CHANGES IN ORDER TO BE EFECTIVE */
 import { Invoice } from './classes/Invoice.js'; //TypeScript Tutorial #16 - Interfaces with Classes
+import { ListTemplate } from './classes/ListTemplate.js';
 import { Payment } from './classes/Payment.js'; //TypeScript Tutorial #16 - Interfaces with Classes
-// let docOne: HasFormatter; //this variable must be of type hasformatter, it must implement that interface
-// let docTwo: HasFormatter; //this is making sure that whatever object in the future is stored inside docOne and two has to implement that interface
-// docOne = new Invoice('yoshi' , 'web work' , 250);
-// docTwo = new Payment('mario' , 'plumbing work' , 200);
-// let docs: HasFormatter [] = []; // we create an array that only admits objects that implement the HasFormatter interface
-// docs.push(docOne);
-// docs.push(docTwo);
-// console.log(docs);
-// //instantiate the class
-// const invOne = new Invoice('Mario' , 'work on the mario website' , 250);
-// const invTwo = new Invoice('Luigi' , 'work on the Luigi website' , 300);
-// //console.log(invOne , invTwo);
-// //create an array where we can only add invoice objects
-// let invoices:Invoice[] = [];
-// invoices.push(invOne);
-// invoices.push(invTwo);
-// //in lesson 13 we can learn how to use private properties and access modifiers to limit this.
-// //////////////////////////////////////////////////////////////
-// invoices.forEach(inv => {
-//     console.log(inv.client , inv.amount , inv.format());
-// });
 const form = document.querySelector('.new-item-form'); //when we use 'as' we dont have to use the exclamation mark '!'
 //inputs
 const type = document.querySelector('#type');
 const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+//list template instance 
+const ul = document.querySelector('ul'); //grab the referente of the list from html
+const list = new ListTemplate(ul);
 //grab the form and add event listener
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -38,5 +21,6 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, 'end'); //this renders the invoice or payment on the main list
+    //console.log(doc);
 });
